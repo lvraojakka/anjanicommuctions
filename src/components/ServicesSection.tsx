@@ -3,75 +3,66 @@ import { Smartphone, Tv, Cpu, Zap } from "lucide-react";
 const services = [
   {
     icon: Smartphone,
-    title: "Samsung Mobile Repair",
-    desc: "Expert repair for Galaxy devices including display, battery, and software issues.",
+    title: "Mobile Repair",
+    desc: "Display, battery & software fixes for Samsung devices.",
   },
   {
     icon: Tv,
-    title: "Home Appliance Service",
-    desc: "Reliable service for TVs, refrigerators, washing machines, and ACs.",
+    title: "Appliance Service",
+    desc: "Service for TVs, ACs, washing machines & more.",
   },
   {
     icon: Cpu,
-    title: "Genuine Spare Parts",
-    desc: "100% original Samsung parts with warranty assurance.",
+    title: "Genuine Parts",
+    desc: "Original Samsung parts with warranty.",
   },
   {
     icon: Zap,
     title: "Fast Service",
-    desc: "Quick turnaround with same-day service for most repairs.",
+    desc: "Quick turnaround with same-day support.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section
-      id="services"
-      className="py-20 bg-gradient-to-b from-white to-orange-50"
-    >
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-16 bg-gradient-to-b from-white to-orange-50" id="services">
+      <div className="max-w-6xl mx-auto px-4">
 
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm text-orange-500 uppercase tracking-wide">
-            Our Services
-          </p>
-          <h2 className="text-4xl font-bold mt-3">
-            Premium Samsung Care
-          </h2>
-          <p className="text-gray-600 mt-4">
-            Professional service for Samsung mobiles and home appliances with trusted expertise.
+        <div className="mb-10 max-w-xl">
+          <h2 className="text-3xl font-semibold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+  Our Services
+</h2>
+          <p className="text-gray-600 text-sm mt-2">
+            Reliable Samsung repair and service with expert care.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-5">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.title}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-r from-orange-400 to-orange-600 hover:scale-[1.02] transition duration-300"
+                className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm hover:shadow-md hover:scale-[1.02] transition"
               >
-                {/* Card */}
-                <div className="rounded-2xl bg-white p-6 h-full flex gap-4 items-start shadow-sm group-hover:shadow-xl transition">
-                  
-                  {/* Icon */}
-                  <div className="bg-orange-100 text-orange-600 p-3 rounded-xl group-hover:scale-110 transition">
-                    <Icon size={24} />
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <h3 className="text-xl font-semibold">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
-                      {service.desc}
-                    </p>
-                  </div>
-
+                
+                {/* Icon with Gradient */}
+                <div className="p-2 rounded-lg bg-gradient-to-r from-orange-400 to-orange-600 text-white">
+                  <Icon size={18} />
                 </div>
+
+                {/* Content */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs mt-1 leading-relaxed">
+                    {service.desc}
+                  </p>
+                </div>
+
               </div>
             );
           })}

@@ -1,61 +1,77 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 
-const Footer = () => (
-  <footer className="bg-foreground text-primary-foreground">
-    <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
-      <div className="grid md:grid-cols-3 gap-12">
-        {/* Brand */}
-        <div>
-          <h3 className="text-xl font-extrabold font-display tracking-tight">
-            Anjani<span className="text-primary">.</span>
-          </h3>
-          <p className="mt-4 text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
-            Samsung Authorized Service Center providing factory-certified repairs for mobile devices and home appliances in Bhimavaram since 2009.
-          </p>
-        </div>
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-6xl mx-auto px-4 py-12">
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-sm font-bold uppercase tracking-widest text-primary-foreground/50 mb-4">Quick Links</h4>
-          <ul className="space-y-3">
-            {["Home", "About", "Services", "Why Us", "Certifications", "Contact"].map((l) => (
-              <li key={l}>
-                <a
-                  href={`#${l.toLowerCase().replace(/ /g, "-")}`}
-                  className="text-sm text-primary-foreground/70 hover:text-primary transition-colors"
-                >
-                  {l}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Top */}
+        <div className="grid md:grid-cols-3 gap-8">
 
-        {/* Contact */}
-        <div>
-          <h4 className="text-sm font-bold uppercase tracking-widest text-primary-foreground/50 mb-4">Contact Info</h4>
-          <div className="space-y-4">
-            {[
-              { icon: MapPin, text: "PP Rd, opp. Raymonds, Bhimavaram, AP 534201" },
-              { icon: Phone, text: "8185816666" },
-              { icon: Mail, text: "anjanihhp@gmail.com" },
-            ].map((item) => (
-              <div key={item.text} className="flex items-center gap-3">
-                <item.icon size={16} className="text-primary flex-shrink-0" />
-                <span className="text-sm text-primary-foreground/70">{item.text}</span>
-              </div>
-            ))}
+          {/* Brand */}
+          <div>
+            <h3 className="text-lg font-semibold text-white">
+              ANJANI<span className="text-orange-500">.</span>
+            </h3>
+            <p className="text-sm text-gray-400 mt-3 leading-relaxed">
+              Samsung Authorized Service Center in Bhimavaram offering reliable repairs with genuine parts.
+            </p>
           </div>
-        </div>
-      </div>
 
-      <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center">
-        <p className="text-xs text-primary-foreground/40">
-          © {new Date().getFullYear()} Anjani Communications. All rights reserved. | Developed by Anjani IT services.
-        </p>
+          {/* Links */}
+          <div>
+            <h4 className="text-sm font-medium text-gray-400 mb-3">
+              Quick Links
+            </h4>
+            <ul className="space-y-2">
+              {["Home", "About", "Services", "Contact"].map((l) => (
+                <li key={l}>
+                  <a
+                    href={`#${l.toLowerCase()}`}
+                    className="text-sm hover:text-orange-400 transition"
+                  >
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-medium text-gray-400 mb-3">
+              Contact
+            </h4>
+            <div className="space-y-3 text-sm">
+
+              <div className="flex items-center gap-2">
+                <MapPin size={16} className="text-orange-500" />
+                <span>Bhimavaram, AP</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Phone size={16} className="text-orange-500" />
+                <a href="tel:8185816666">8185816666</a>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Mail size={16} className="text-orange-500" />
+                <a href="mailto:anjaninhhp@gmail.com">Email Us</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+          © {new Date().getFullYear()} Anjani Communications
+        </div>
+
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;

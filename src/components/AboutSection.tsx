@@ -4,66 +4,58 @@ const features = [
   {
     icon: ShieldCheck,
     title: "Authorized Service",
-    desc: "Official Samsung authorized service with trusted repair standards.",
+    desc: "Official Samsung service with trusted repair standards.",
   },
   {
     icon: Users,
     title: "Certified Technicians",
-    desc: "Skilled and Samsung-trained experts for accurate repairs.",
+    desc: "Skilled experts for accurate and reliable repairs.",
   },
   {
     icon: Award,
-    title: "15+ Years of Trust",
-    desc: "Serving customers with reliability and excellence since 2009.",
+    title: "10+ Years Experience",
+    desc: "Serving customers with quality and trust.",
   },
 ];
 
 const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="py-20 bg-gradient-to-b from-white to-orange-50"
-    >
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-16 bg-gradient-to-b from-white to-orange-50" id="about">
+      <div className="max-w-6xl mx-auto px-4">
 
         {/* Heading */}
-        <div className="max-w-2xl mb-14">
-          <p className="text-sm text-orange-500 uppercase tracking-wide">
+        <div className="mb-10 max-w-xl">
+          <h2 className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
             About Us
-          </p>
-          <h2 className="text-4xl font-bold mt-3">
-            Trusted Samsung Service Center
           </h2>
-          <p className="text-gray-600 mt-4">
-            Anjani Communications delivers reliable Samsung mobile and appliance repairs using genuine parts and expert technicians.
+          <p className="text-gray-600 text-sm mt-2">
+            Trusted Samsung service center delivering reliable repairs with genuine parts.
           </p>
         </div>
 
         {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           {features.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="group rounded-2xl p-[1px] bg-gradient-to-r from-orange-400 to-orange-600 hover:scale-105 transition duration-300"
+                className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md hover:scale-[1.02] transition"
               >
-                <div className="bg-white rounded-2xl p-6 h-full shadow-sm group-hover:shadow-xl transition">
-                  
-                  {/* Icon */}
-                  <div className="bg-orange-100 text-orange-600 p-3 rounded-xl w-fit mb-4 group-hover:scale-110 transition">
-                    <Icon size={24} />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-lg font-semibold">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-
+                
+                {/* Icon with Gradient */}
+                <div className="mb-3 p-2 rounded-lg w-fit bg-gradient-to-r from-orange-400 to-orange-600 text-white">
+                  <Icon size={18} />
                 </div>
+
+                {/* Content */}
+                <h3 className="text-sm font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs mt-1 leading-relaxed">
+                  {item.desc}
+                </p>
+
               </div>
             );
           })}

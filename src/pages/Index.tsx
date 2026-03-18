@@ -6,12 +6,14 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import AwardsSection from "@/components/AwardsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ReviewsSection from "@/components/ReviewsSection";
 
 const Index = () => (
   <div className="min-h-screen">
     <Navbar />
     <HeroSection />
     <AboutSection />
+    <ReviewsSection />
     <ServicesSection />
     <WhyChooseUsSection />
     <AwardsSection />

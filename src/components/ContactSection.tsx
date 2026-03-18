@@ -6,6 +6,7 @@ const ContactSection = () => {
     name: "",
     email: "",
     phone: "",
+    location: "",
     message: "",
   });
 
@@ -28,6 +29,7 @@ const ContactSection = () => {
  Name: ${form.name}
  Email: ${form.email}
  Phone: ${form.phone}
+ Location: ${form.location}
  Issue: ${form.message}`;
 
   const whatsappUrl = `https://wa.me/918185816666?text=${encodeURIComponent(message)}`;
@@ -35,7 +37,7 @@ const ContactSection = () => {
   window.open(whatsappUrl, "_blank");
 
   // reset form
-  setForm({ name: "", email: "", phone: "", message: "" });
+  setForm({ name: "", email: "", phone: "", location: "", message: "" });
 };
 
   return (
@@ -87,8 +89,8 @@ const ContactSection = () => {
           <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
             <Mail size={20} />
           </div>
-          <a href="mailto:anjanihhp@gmail.com" className="text-gray-800 font-medium">
-            anjanihhp@gmail.com
+          <a href="mailto:anjaninhhp@gmail.com" className="text-gray-800 font-medium">
+            anjaninhhp@gmail.com
           </a>
         </div>
 
@@ -131,11 +133,11 @@ const ContactSection = () => {
       onSubmit={handleSubmit}
       className="h-full rounded-3xl bg-white/90 backdrop-blur-xl p-8 shadow-xl flex flex-col justify-between space-y-5"
     >
-      <h3 className="text-xl font-semibold">Send a Message</h3>
+      <h3 className="text-xl font-semibold">Book Service</h3>
 
       <input
         type="text"
-        placeholder="Full Name"
+        placeholder="Full Name*"
         value={form.name}
         onChange={(e) => setForm({ ...form, name: e.target.value })}
         className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -144,23 +146,32 @@ const ContactSection = () => {
 
       <input
         type="email"
-        placeholder="Email Address"
+        placeholder="Email Address*"
         value={form.email}
         onChange={(e) => setForm({ ...form, email: e.target.value })}
         className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        required
       />
 
       <input
         type="tel"
-        placeholder="Phone Number"
+        placeholder="Phone Number*"
         value={form.phone}
         onChange={(e) => setForm({ ...form, phone: e.target.value })}
         className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
         required
       />
+       <input
+        type="text"
+        placeholder="Location*"
+        value={form.location}
+        onChange={(e) => setForm({ ...form, location: e.target.value })}
+        className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        required
+      />
 
       <textarea
-        placeholder="Your Message"
+        placeholder="Issue*"
         value={form.message}
         onChange={(e) => setForm({ ...form, message: e.target.value })}
         className="w-full border rounded-xl px-4 py-3 h-28 resize-none focus:outline-none focus:ring-2 focus:ring-orange-400"

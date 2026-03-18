@@ -1,56 +1,47 @@
 import { Award, BadgeCheck, Star, Shield } from "lucide-react";
 
 const certifications = [
-  { icon: BadgeCheck, label: "Samsung Authorized Service Center" },
-  { icon: Award, label: "Best Service Center Award 2023" },
-  { icon: Star, label: "5-Star Customer Rated Center" },
-  { icon: Shield, label: "ISO 9001 Certified" },
+  { icon: BadgeCheck, label: "Authorized Service" },
+  { icon: Award, label: "Best Service 2023" },
+  { icon: Star, label: "5-Star Rated" },
+  { icon: Shield, label: "ISO Certified" },
 ];
 
 const AwardsSection = () => {
   return (
-    <section
-      id="awards"
-      className="py-20 bg-gradient-to-b from-orange-50 to-white"
-    >
-      <div className="max-w-7xl mx-auto px-4 text-center">
+    <section className="py-16 bg-white" id="awards">
+      <div className="max-w-6xl mx-auto px-4 text-center">
 
         {/* Heading */}
-        <div className="mb-16 max-w-2xl mx-auto">
-          <p className="text-sm text-orange-500 uppercase tracking-wide">
+        <div className="mb-10 max-w-xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
             Awards & Certifications
-          </p>
-          <h2 className="text-4xl font-bold mt-3">
-            Trusted & Recognized
           </h2>
-          <p className="text-gray-600 mt-4">
-            Our commitment to quality and excellence is backed by certifications and customer trust.
+          <p className="text-gray-600 text-sm mt-2">
+            Recognized for quality service and customer trust.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {certifications.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.label}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-r from-orange-400 to-orange-600 hover:scale-105 transition duration-300"
+                className="bg-gray-50 p-5 rounded-xl hover:shadow-md hover:scale-[1.03] transition"
               >
-                {/* Inner Card */}
-                <div className="bg-white rounded-2xl p-6 h-full flex flex-col items-center justify-center text-center shadow-sm group-hover:shadow-xl transition">
-                  
-                  {/* Icon */}
-                  <div className="bg-orange-100 text-orange-600 p-4 rounded-xl mb-4 group-hover:scale-110 transition">
-                    <Icon size={30} />
-                  </div>
-
-                  {/* Text */}
-                  <p className="text-sm font-semibold leading-snug">
-                    {item.label}
-                  </p>
-
+                
+                {/* Icon */}
+                <div className="mb-3 p-2 w-fit mx-auto rounded-lg bg-gradient-to-r from-orange-400 to-orange-600 text-white">
+                  <Icon size={20} />
                 </div>
+
+                {/* Text */}
+                <p className="text-xs font-semibold text-gray-800">
+                  {item.label}
+                </p>
+
               </div>
             );
           })}
