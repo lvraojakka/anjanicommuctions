@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import CustomSelect from "./ui/CustomSelect";
 
 const ContactSection = () => {
   const [form, setForm] = useState({
@@ -7,188 +8,215 @@ const ContactSection = () => {
     email: "",
     phone: "",
     location: "",
+    category: "",
     message: "",
   });
 
- const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+  const categoryOptions = [
+    { label: "Refrigerator", value: "Refrigerator" },
+    { label: "Washing Machine", value: "Washing Machine" },
+    { label: "Air Conditioner", value: "Air Conditioner" },
+    { label: "Microwave Oven", value: "Microwave Oven" },
+    { label: "TV", value: "TV" },
+    { label: "Warranty Related", value: "Warranty Related" },
+    { label: "Others", value: "Others" },
+  ];
 
-  // Validation
-  if (!form.name || !form.phone || !form.message) {
-    alert("Please fill all required fields");
-    return;
-  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
- if (!/^[6-9]\d{9}$/.test(form.phone)) {
-  alert("Enter valid Indian phone number");
-  return;
-}
+    if (!form.name || !form.phone || !form.message) {
+      alert("Please fill all required fields");
+      return;
+    }
 
- const message = `*New Service Request*
+    if (!/^[6-9]\d{9}$/.test(form.phone)) {
+      alert("Enter valid Indian phone number");
+      return;
+    }
 
- Name: ${form.name}
- Email: ${form.email}
- Phone: ${form.phone}
- Location: ${form.location}
- Issue: ${form.message}`;
+    const message = `*New Service Request*
 
-  const whatsappUrl = `https://wa.me/918185816666?text=${encodeURIComponent(message)}`;
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone}
+Location: ${form.location}
+Category: ${form.category}
+Issue: ${form.message}`;
 
-  window.open(whatsappUrl, "_blank");
+    const whatsappUrl = `https://wa.me/918185816666?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
 
-  // reset form
-  setForm({ name: "", email: "", phone: "", location: "", message: "" });
-};
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      location: "",
+      category: "",
+      message: "",
+    });
+  };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-orange-50" id="contact">
-      <div className="max-w-7xl mx-auto px-4">
-
+    <section
+      className="py-14 bg-gradient-to-b from-white to-orange-50"
+      id="contact"
+    >
+      <div className="max-w-6xl mx-auto px-4">
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm text-orange-500 uppercase tracking-wide">
+        <div className="text-center max-w-xl mx-auto mb-12">
+          <p className="text-xs text-orange-500 uppercase tracking-widest">
             Contact Us
           </p>
-          <h2 className="text-4xl font-bold mt-3">
+
+          <h2 className="text-3xl md:text-4xl font-semibold mt-2 tracking-tight">
             Let’s Connect
           </h2>
-          <p className="text-gray-600 mt-4">
+
+          <p className="text-gray-600 mt-3 text-sm">
             Reach out for fast and reliable Samsung service support.
           </p>
         </div>
 
-       <div className="grid md:grid-cols-2 gap-10 items-stretch">
+        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          {/* LEFT */}
+          <div className="rounded-2xl p-[1px] bg-gradient-to-br from-orange-400 to-orange-600">
+            <div className="h-full rounded-2xl bg-white/95 backdrop-blur-md p-6 shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex flex-col justify-between transition hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+              <div className="space-y-5">
+                {/* Address */}
+                <div className="flex gap-4 items-start">
+                  <div className="p-3 bg-orange-100 text-orange-600 rounded-lg">
+                    <MapPin size={18} />
+                  </div>
 
-  {/* LEFT SIDE */}
-  <div className="relative rounded-3xl p-[1px] bg-gradient-to-br from-orange-400 to-orange-600">
-    <div className="h-full rounded-3xl bg-white/90 backdrop-blur-xl p-6 md:p-8 flex flex-col justify-between shadow-xl">
+                  <div className="text-gray-700 text-sm leading-relaxed">
+                    <p className="font-semibold text-base bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+                      Anjani Communications
+                    </p>
+                    <p className="mt-1">
+                      Door No, 16/5/6, PP Rd, opposite Raymonds Show Room,
+                      <br />
+                      Bhimavaram, Andhra Pradesh 534201
+                    </p>
+                  </div>
+                </div>
 
-      {/* Info */}
-      <div className="space-y-5">
+                {/* Phone */}
+                <div className="flex gap-4 items-center">
+                  <div className="p-3 bg-orange-100 text-orange-600 rounded-lg">
+                    <Phone size={18} />
+                  </div>
+                  <a
+                    href="tel:8185816666"
+                    className="text-gray-800 font-medium text-sm hover:text-orange-600 transition"
+                  >
+                    8185816666
+                  </a>
+                </div>
 
-        <div className="flex gap-4 items-start">
-          <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-            <MapPin size={20} />
+                {/* Email */}
+                <div className="flex gap-4 items-center">
+                  <div className="p-3 bg-orange-100 text-orange-600 rounded-lg">
+                    <Mail size={18} />
+                  </div>
+                  <a
+                    href="mailto:anjaninhhp@gmail.com"
+                    className="text-gray-800 font-medium text-sm hover:text-orange-600 transition"
+                  >
+                    anjaninhhp@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <a
+                  href="tel:8185816666"
+                  className="text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-sm"
+                >
+                  Call
+                </a>
+
+                <a
+                  href="mailto:anjaninhhp@gmail.com"
+                  className="text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-sm"
+                >
+                  Email
+                </a>
+              </div>
+
+              {/* Map */}
+              <div className="mt-6 rounded-xl overflow-hidden h-44">
+                <iframe
+                  src="https://maps.google.com/maps?q=Anjani%20Communications%20Bhimavaram&z=15&output=embed"
+                  className="w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            Door No, 16/5/6, PP Rd, opposite Raymonds Show Room,<br/>
-            Bhimavaram, Andhra Pradesh 534201
-          </p>
-        </div>
 
-        <div className="flex gap-4 items-center">
-          <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-            <Phone size={20} />
+          {/* RIGHT */}
+          <div className="rounded-2xl p-[1px] bg-gradient-to-br from-orange-400 to-orange-600">
+            <form
+              onSubmit={handleSubmit}
+              className="h-full rounded-2xl bg-white/95 backdrop-blur-md p-6 shadow-[0_8px_30px_rgba(0,0,0,0.06)] space-y-4 transition hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
+            >
+              <h3 className="text-lg font-semibold tracking-tight">
+                Book Service
+              </h3>
+
+              {/* Inputs */}
+              {[
+                { type: "text", placeholder: "Full Name*", key: "name" },
+                { type: "email", placeholder: "Email Address*", key: "email" },
+                { type: "tel", placeholder: "Phone Number*", key: "phone" },
+                { type: "text", placeholder: "Location*", key: "location" },
+              ].map((input) => (
+                <input
+                  key={input.key}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  value={form[input.key]}
+                  onChange={(e) =>
+                    setForm({ ...form, [input.key]: e.target.value })
+                  }
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
+                  required
+                />
+              ))}
+              {/* Category Select */}
+              <CustomSelect
+                options={categoryOptions}
+                value={form.category}
+                onChange={(val) => setForm({ ...form, category: val })}
+                placeholder="Select Product Category*"
+              />
+
+              <textarea
+                placeholder="Describe your issue...*"
+                value={form.message}
+                onChange={(e) => {
+                  setForm({ ...form, message: e.target.value });
+                  const el = e.target;
+                  el.style.height = "auto";
+                  el.style.height = el.scrollHeight + "px";
+                }}
+                rows={3}
+                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+                required
+              />
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg font-medium flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm"
+              >
+                <MessageCircle size={16} />
+                Send Message
+              </button>
+            </form>
           </div>
-          <a href="tel:8185816666" className="text-gray-800 font-medium">
-            8185816666
-          </a>
         </div>
-
-        <div className="flex gap-4 items-center">
-          <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-            <Mail size={20} />
-          </div>
-          <a href="mailto:anjaninhhp@gmail.com" className="text-gray-800 font-medium">
-            anjaninhhp@gmail.com
-          </a>
-        </div>
-
-      </div>
-
-      {/* Buttons */}
-      <div className="flex gap-4 mt-6">
-        <a
-          href="tel:8185816666"
-          className="flex-1 text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 rounded-xl font-medium shadow-lg hover:scale-105 transition"
-        >
-          Call Now
-        </a>
-
-        {/* <a
-          href="https://wa.me/918185816666"
-          target="_blank"
-          className="flex-1 text-center border border-orange-500 text-orange-500 py-3 rounded-xl font-medium flex items-center justify-center gap-2 hover:bg-orange-50 transition"
-        >
-          <MessageCircle size={16} />
-          WhatsApp
-        </a> */}
-      </div>
-
-      {/* Map */}
-      <div className="mt-6 rounded-2xl overflow-hidden h-52">
-        <iframe
-          src="https://maps.google.com/maps?q=Anjani%20Communications%20Bhimavaram&z=15&output=embed"
-          className="w-full h-full"
-          loading="lazy"
-        />
-      </div>
-
-    </div>
-  </div>
-
-  {/* RIGHT SIDE */}
-  <div className="relative rounded-3xl p-[1px] bg-gradient-to-br from-orange-400 to-orange-600">
-    <form
-      onSubmit={handleSubmit}
-      className="h-full rounded-3xl bg-white/90 backdrop-blur-xl p-8 shadow-xl flex flex-col justify-between space-y-5"
-    >
-      <h3 className="text-xl font-semibold">Book Service</h3>
-
-      <input
-        type="text"
-        placeholder="Full Name*"
-        value={form.name}
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-        className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-        required
-      />
-
-      <input
-        type="email"
-        placeholder="Email Address*"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-        required
-      />
-
-      <input
-        type="tel"
-        placeholder="Phone Number*"
-        value={form.phone}
-        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-        className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-        required
-      />
-       <input
-        type="text"
-        placeholder="Location*"
-        value={form.location}
-        onChange={(e) => setForm({ ...form, location: e.target.value })}
-        className="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-        required
-      />
-
-      <textarea
-        placeholder="Issue*"
-        value={form.message}
-        onChange={(e) => setForm({ ...form, message: e.target.value })}
-        className="w-full border rounded-xl px-4 py-3 h-28 resize-none focus:outline-none focus:ring-2 focus:ring-orange-400"
-        required
-      />
-
-     <button
-  type="submit"
-  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:scale-105 transition shadow-lg"
->
-  <MessageCircle size={18} className="opacity-90" />
-  <span className="tracking-wide">Send Message</span>
-</button>
-    </form>
-  </div>
-
-</div>
       </div>
     </section>
   );

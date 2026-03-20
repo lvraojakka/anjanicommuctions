@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-lg font-semibold text-white">
-              ANJANI<span className="text-orange-500">.</span>
+              ANJANI Communications<span className="text-orange-500">.</span>
             </h3>
             <p className="text-sm text-gray-400 mt-3 leading-relaxed">
               Samsung Authorized Service Center in Bhimavaram offering reliable repairs with genuine parts.

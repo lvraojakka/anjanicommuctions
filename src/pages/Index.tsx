@@ -7,6 +7,7 @@ import AwardsSection from "@/components/AwardsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
+import FAQSection from "@/components/FAQsSection";
 
 const Index = () => (
   <div className="min-h-screen">
@@ -16,7 +17,7 @@ const Index = () => (
     <ReviewsSection />
     <ServicesSection />
     <WhyChooseUsSection />
-    <AwardsSection />
+    <FAQSection />
     <ContactSection />
     <Footer />
   </div>
