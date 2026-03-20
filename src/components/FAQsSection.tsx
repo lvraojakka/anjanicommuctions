@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "How long is Samsung Extended Warranty valid?",
-    a: "It usually extends warranty by 1 to 2 years based on your plan.",
+    a: "It usually extends warranty by 1 to 4 years based on your plan.",
   },
 ];
 

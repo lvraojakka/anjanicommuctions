@@ -12,15 +12,16 @@ const ContactSection = () => {
     message: "",
   });
 
-  const categoryOptions = [
-    { label: "Refrigerator", value: "Refrigerator" },
-    { label: "Washing Machine", value: "Washing Machine" },
-    { label: "Air Conditioner", value: "Air Conditioner" },
-    { label: "Microwave Oven", value: "Microwave Oven" },
-    { label: "TV", value: "TV" },
-    { label: "Warranty Related", value: "Warranty Related" },
-    { label: "Others", value: "Others" },
-  ];
+ const categoryOptions = [
+  { label: "Air Conditioner", value: "Air Conditioner" },
+  { label: "Mobile", value: "Mobile" },
+  { label: "Microwave Oven", value: "Microwave Oven" },
+  { label: "Refrigerator", value: "Refrigerator" },
+  { label: "Television (TV)", value: "Television (TV)" },
+  { label: "Warranty Related", value: "Warranty Related" },
+  { label: "Washing Machine", value: "Washing Machine" },
+  { label: "Others", value: "Others" },
+];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
